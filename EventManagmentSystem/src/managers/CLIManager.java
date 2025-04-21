@@ -3,6 +3,7 @@ package managers;
 import java.util.Scanner;
 
 import users.User;
+import utilities.InputUtils;
 
 public class CLIManager {
     public static void start() {
@@ -64,29 +65,9 @@ public class CLIManager {
         System.out.print("Enter date of birth (yyyy-mm-dd): ");
         String dob = input.nextLine();
 
-        System.out.print("Gender (Male/Female): ");
-        String genderStr = input.nextLine();
-        User.Gender gender = User.Gender.valueOf(genderStr); // throws exception if invalid
+        User.Gender gender = InputUtils.parseGender(input);
 
-        System.out.println("Choose role:\n1. Admin\n2. Organizer\n3. Attendee");
-        int roleChoice = input.nextInt();
-        input.nextLine(); // clear buffer
-
-        User.UserRole role;
-        switch (roleChoice) {
-            case 1:
-                role = User.UserRole.Admin;
-                break;
-            case 2:
-                role = User.UserRole.Organizer;
-                break;
-            case 3:
-                role = User.UserRole.Attendee;
-                break;
-            default:
-                System.out.println("Invalid role. Registration aborted.");
-                return;
-        }
+        User.UserRole role = InputUtils.parseRole(input);
 
         String address = "", interests = "";
         double balance = 0.0;

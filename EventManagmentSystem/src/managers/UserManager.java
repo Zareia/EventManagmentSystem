@@ -11,19 +11,19 @@ public class UserManager implements Manageable<User> {
     }
 
     @Override
-    public User read(int ID) {
+    public User read(String ID) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'read'");
     }
 
     @Override
-    public void update(int ID, User updatedObj) {
+    public void update(String ID, User updatedObj) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'update'");
     }
 
     @Override
-    public void delete(int ID) {
+    public void delete(String ID) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'delete'");
     }
