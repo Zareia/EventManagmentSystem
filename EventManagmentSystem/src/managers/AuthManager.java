@@ -9,25 +9,34 @@ import users.User;
 public class AuthManager {
 
     public static User login(String username, String password) {
+        // Check Admins
         for (Admin admin : Database.admins) {
             if (admin.getUsername().equals(username) && admin.getPassword().equals(password)) {
+                admin.setRole(User.UserRole.Admin); // Ensure role is set
+                Database.currentUser = admin; // Set the current user
                 return admin;
             }
         }
 
+        // Check Organizers
         for (Organizer organizer : Database.organizers) {
             if (organizer.getUsername().equals(username) && organizer.getPassword().equals(password)) {
+                organizer.setRole(User.UserRole.Organizer); // Ensure role is set
+                Database.currentUser = organizer; // Set the current user
                 return organizer;
             }
         }
 
+        // Check Attendees
         for (Attendee attendee : Database.attendees) {
             if (attendee.getUsername().equals(username) && attendee.getPassword().equals(password)) {
+                attendee.setRole(User.UserRole.Attendee); // Ensure role is set
+                Database.currentUser = attendee; // Set the current user
                 return attendee;
             }
         }
 
-        return null;
+        return null; // Login failed
     }
 
     public static boolean isUsernameTaken(String username) {

@@ -30,7 +30,7 @@ public abstract class User {
     public void setPassword(String password) { this.password = password; }
     public void setDateofbirth(String dateofbirth) { this.dateofbirth = dateofbirth; }
     public void setUsername(String username) { this.username = username; }
-    public abstract void setRole(UserRole role);
+    public void setRole(UserRole role) {this.role = role;}
 
     
 }
