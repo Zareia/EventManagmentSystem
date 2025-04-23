@@ -9,7 +9,7 @@ public class Event implements Identifiable {
     // Attributes
     private String EventName;
     private String EventDate;
-    private Category category; // Use the Category enum
+    private Category category; 
     private Room room;
     private Organizer organizer;
     private Attendee attendee;
@@ -17,7 +17,7 @@ public class Event implements Identifiable {
     private String eventID;
     private static int eventcount = 0;
 
-    // Argument Constructor
+    
     public Event(String EventName, String EventDate, Category category, Room room, Organizer organizer, Attendee attendee, double price) {
         this.EventName = EventName;
         this.EventDate = EventDate;
@@ -33,70 +33,28 @@ public class Event implements Identifiable {
     
 
     // Setters
-    public void setEventName(String eventName) {
-        EventName = eventName;
-    }
-
-    public void setEventDate(String eventDate) {
-        EventDate = eventDate;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
-    public void setRoom(Room room) {
-        this.room = room;
-    }
-
-    public void setOrganizer(Organizer organizer) {
-        this.organizer = organizer;
-    }
-
-    public void setAttendee(Attendee attendee) {
-        this.attendee = attendee;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
+    public void setEventName(String eventName) {EventName = eventName;}
+    public void setEventDate(String eventDate) {EventDate = eventDate;}
+    public void setCategory(Category category) {this.category = category;}
+    public void setRoom(Room room) {this.room = room;}
+    public void setOrganizer(Organizer organizer) {this.organizer = organizer;}
+    public void setAttendee(Attendee attendee) {this.attendee = attendee;}
+    public void setPrice(double price) {this.price = price;}
 
     // Getters
-    public static int getEventcount() {
-        return eventcount;
-    }
+    public static int getEventcount() {return eventcount;}
+    public String getEventName() {return EventName;}
+    public String getEventDate() {return EventDate;}
+    public Category getCategory() {return category;}
+    public Organizer getOrganizer() {return organizer;}
+    public Room getRoom() {return room;}
+    public Attendee getAttendee() {return attendee;}
+    public double getPrice() {return price;}
+    public String getEventID() {return eventID;}
 
-    public String getEventName() {
-        return EventName;
-    }
-
-    public String getEventDate() {
-        return EventDate;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public Organizer getOrganizer() {
-        return organizer;
-    }
-
-    public Room getRoom() {
-        return room;
-    }
-
-    public Attendee getAttendee() {
-        return attendee;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public String getEventID() {
-        return eventID;
-    }
+    // ID generation
+    public String getIdPrefix() {return "EVT";}
+    public void generateID() {this.eventID = IDGenerator.generate(this);}
 
     @Override
     public String toString() {
@@ -110,15 +68,5 @@ public class Event implements Identifiable {
             room != null ? room.toString() : "N/A",
             price
         );
-    }
-
-    @Override
-    public String getIdPrefix() {
-        return "EVT";
-    }
-
-    @Override
-    public void generateID() {
-        this.eventID = IDGenerator.generate(this);
     }
 }

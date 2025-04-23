@@ -20,17 +20,7 @@ public static ArrayList<Room> rooms = new ArrayList<>();
 
 public static User currentUser; // Track the currently logged-in user
 
-public static void updateUser(User user) {
-    // Find the user in the database and update their details
-    for (int i = 0; i < attendees.size(); i++) {
-        if (attendees.get(i).getUsername().equals(user.getUsername())) {
-            attendees.set(i, (Attendee) user);
-            break;
-        }
-    }
-}
-
-
+// dummy data for testing
 public static void initializeDummyData() {
     // Add Admins
     admins.add(new Admin("admin1", "password123", "1980-01-01", Admin.Gender.Male));

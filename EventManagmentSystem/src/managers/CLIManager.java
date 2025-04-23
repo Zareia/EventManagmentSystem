@@ -21,13 +21,13 @@ public class CLIManager {
 
             switch (mainChoice) {
                 case 1:
-                    User loggedInUser = UserManager.handleLogin(input);
+                    User loggedInUser = AuthManager.handleLogin(input);
                     if (loggedInUser != null) {
-                        UserManager.routeUser(loggedInUser, input);
+                        AuthManager.routeUser(loggedInUser, input);
                     }
                     break;
                 case 2:
-                    UserManager.handleRegistration(input);
+                    AuthManager.handleRegistration(input);
                     break;
                 case 3:
                     exit = true;

@@ -7,13 +7,12 @@ public class Wallet implements Identifiable {
     private double balance;
     private String walletID;
 
-    // ARGUMENT CONSTRUCTOR
     public Wallet(double balance) {
         this.balance = balance;
         generateID();
     }
 
-    // GETTER
+    // GETTERs
     public double getBalance() {
         return balance;
     }
@@ -38,13 +37,7 @@ public class Wallet implements Identifiable {
         return "Wallet Balance: " + balance;
     }
 
-    @Override
-    public String getIdPrefix() {
-        return "WLT";
-    }
-
-    @Override
-    public void generateID() {
-        this.walletID = IDGenerator.generate(this);
-    }
+    // ID generation
+    public String getIdPrefix() {return "WLT";}
+    public void generateID() {this.walletID = IDGenerator.generate(this);}
 }

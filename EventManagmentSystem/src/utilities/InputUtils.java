@@ -4,6 +4,9 @@ import java.util.Scanner;
 
 import users.User;
 
+
+
+// Ensures that the user correctly inputs the gender
 public class InputUtils {
     public static User.Gender parseGender(Scanner input) {
         while (true) {
@@ -18,6 +21,8 @@ public class InputUtils {
         }
     }
 
+
+    // Ensures that the user correctly inputs the role
     public static User.UserRole parseRole(Scanner input) {
         while (true) {
             System.out.print("Role (Admin/Organizer/Attendee): ");

@@ -5,8 +5,10 @@ public abstract class User {
     private String password;
     private String dateofbirth;
     protected String userID;
+
     public enum UserRole {Admin, Organizer, Attendee;}
-    UserRole role;
+    protected UserRole role;
+
     public enum Gender {Male, Female;}
     protected Gender gender;
 

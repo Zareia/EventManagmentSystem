@@ -6,6 +6,7 @@ import data.Database;
 
 public class AdminManager {
 
+    // show the admin dashboard and all of the admin functions
     public static void handleAdmin(Scanner input) {
         System.out.println("////////////////////////// Welcome, Admin! //////////////////////////");
         int choice = 0;

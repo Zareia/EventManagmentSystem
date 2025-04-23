@@ -5,12 +5,10 @@ import java.util.Scanner;
 import data.Database;
 import models.Event;
 import models.Room;
-import models.Wallet;
-import users.Attendee;
+import models.Category;
+import users.Organizer;
 
 public class EventManager implements Manageable<Event> {
-
-   
 
     public static void manageEvents(Scanner input) {
         System.out.println("Event Management:");
@@ -22,15 +20,55 @@ public class EventManager implements Manageable<Event> {
         input.nextLine();
 
         switch (choice) {
-            case 1:
+            case 1: // Add Event
                 System.out.print("Enter Event Name: ");
                 String eventName = input.nextLine();
-                System.out.print("Enter Event Date: ");
+
+                System.out.print("Enter Event Date (yyyy-mm-dd): ");
                 String eventDate = input.nextLine();
-                // Add logic to select category, room, organizer, attendee, and price
-                new EventManager().create(new Event(eventName, eventDate, null, null, null, null, 0.0));
+
+                // Select Category
+                System.out.println("Select a Category:");
+                for (int i = 0; i < Category.getPredefinedCategories().size(); i++) {
+                    System.out.println((i + 1) + ". " + Category.getPredefinedCategories().get(i));
+                }
+                System.out.print("Enter the nubmer of your choice (1,2,3,etc...): ");
+                int categoryChoice = input.nextInt();
+                input.nextLine(); // Clear buffer
+                Category category = Category.getPredefinedCategories().get(categoryChoice - 1);
+
+                // Select Room
+                System.out.println("Available Rooms:");
+                for (int i = 0; i < Database.rooms.size(); i++) {
+                    System.out.println((i + 1) + ". " + Database.rooms.get(i));
+                }
+                System.out.print("Enter choice: ");
+                int roomChoice = input.nextInt();
+                input.nextLine(); // Clear buffer
+                Room room = Database.rooms.get(roomChoice - 1);
+
+                // Select Organizer
+                System.out.println("Available Organizers:");
+                for (int i = 0; i < Database.organizers.size(); i++) {
+                    System.out.println((i + 1) + ". " + Database.organizers.get(i).getUsername());
+                }
+                System.out.print("Enter choice: ");
+                int organizerChoice = input.nextInt();
+                input.nextLine(); // Clear buffer
+                Organizer organizer = Database.organizers.get(organizerChoice - 1);
+
+                // Set Price
+                System.out.print("Enter Ticket Price: ");
+                double price = input.nextDouble();
+                input.nextLine(); // Clear buffer
+
+                // Create and Add Event
+                Event newEvent = new Event(eventName, eventDate, category, room, organizer, null, price);
+                new EventManager().create(newEvent);
+                System.out.println("Event added successfully!");
                 break;
-            case 2:
+
+            case 2: // Update Event
                 System.out.print("Enter Event ID to Update: ");
                 String eventId = input.nextLine();
                 Event eventToUpdate = new EventManager().read(eventId);
@@ -42,58 +80,26 @@ public class EventManager implements Manageable<Event> {
                     System.out.println("Event not found.");
                 }
                 break;
-            case 3:
+
+            case 3: // Delete Event
                 System.out.print("Enter Event ID to Delete: ");
                 String eventIdToDelete = input.nextLine();
                 new EventManager().delete(eventIdToDelete);
+                System.out.println("Event deleted successfully!");
                 break;
-            case 4:
+
+            case 4: // Back
                 System.out.println("Returning to Organizer Dashboard...");
                 break;
+
             default:
                 System.out.println("Invalid choice.");
         }
     }
 
-    public static void handleOrganizer(Scanner input) {
-        System.out.println("////////////////////////// Welcome, Organizer! //////////////////////////");
-        int choice = 0;
+    
 
-        while (choice != 5) {
-            System.out.println("Organizer Dashboard:");
-            System.out.println("1. View Available Rooms");
-            System.out.println("2. Manage Events");
-            System.out.println("3. View Your Events");
-            System.out.println("4. Manage Rooms");
-            System.out.println("5. Back to Main Menu");
-            choice = input.nextInt();
-            input.nextLine();
-
-            switch (choice) {
-                case 1:
-                    Database.rooms.forEach(room -> System.out.println(room));
-                    break;
-                case 2:
-                    manageEvents(input);
-                    break;
-                case 3:
-                    Database.events.stream()
-                            .filter(event -> event.getOrganizer().getUsername().equals("OrganizerUsername")) // Replace with actual organizer username
-                            .forEach(event -> System.out.println(event));
-                    break;
-                case 4:
-                    manageRooms(input);
-                    break;
-                case 5:
-                    System.out.println("Returning to Main Menu...");
-                    break;
-                default:
-                    System.out.println("Invalid choice. Please try again.");
-            }
-        }
-    }
-
-    private static void manageRooms(Scanner input) {
+    public static void manageRooms(Scanner input) {
         System.out.println("Room Management:");
         System.out.println("1. Add Room");
         System.out.println("2. Update Room");
@@ -151,63 +157,7 @@ public class EventManager implements Manageable<Event> {
         }
     }
 
-    public static void handleAttendee(Scanner input) {
-        System.out.println("////////////////////////// Welcome, Attendee! //////////////////////////");
-        int choice = 0;
-
-        while (choice != 3) {
-            System.out.println("Attendee Dashboard:");
-            System.out.println("1. View Events");
-            System.out.println("2. Buy Ticket");
-            System.out.println("3. Back to Main Menu");
-            choice = input.nextInt();
-            input.nextLine();
-
-            switch (choice) {
-                case 1:
-                    Database.events.forEach(event -> System.out.println(event));
-                    break;
-                case 2:
-                    System.out.print("Enter Event ID to Buy Ticket: ");
-                    String eventId = input.nextLine();
-                    Event event = Database.events.stream()
-                            .filter(e -> e.getEventID().equals(eventId))
-                            .findFirst()
-                            .orElse(null);
-
-                    if (event != null) {
-                        System.out.println("Event: " + event.getEventName());
-                        System.out.println("Ticket Price: " + event.getPrice());
-
-                        // Assuming the logged-in user is an attendee
-                        Attendee attendee = (Attendee) Database.attendees.stream()
-                                .filter(a -> a.getUsername().equals(Database.currentUser.getUsername()))
-                                .findFirst()
-                                .orElse(null);
-
-                        if (attendee != null) {
-                            Wallet wallet = attendee.getWallet();
-                            if (wallet.withdraw(event.getPrice())) {
-                                System.out.println("Ticket purchased successfully for event: " + event.getEventName());
-                                System.out.println("Remaining Balance: " + wallet.getBalance());
-                            } else {
-                                System.out.println("Insufficient balance. Please add funds to your wallet.");
-                            }
-                        } else {
-                            System.out.println("Attendee not found.");
-                        }
-                    } else {
-                        System.out.println("Event not found.");
-                    }
-                    break;
-                case 3:
-                    System.out.println("Returning to Main Menu...");
-                    break;
-                default:
-                    System.out.println("Invalid choice. Please try again.");
-            }
-        }
-    }
+    
 
     @Override
     public void create(Event event) {

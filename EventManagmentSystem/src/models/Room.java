@@ -9,7 +9,7 @@ public class Room implements Identifiable {
     private String roomID;
     private static int RoomCount = 0;
 
-    // ARGUMENT CONSTRUCTOR
+    
     public Room(int RoomNum, String AvailableHrs){
         this.RoomNum=RoomNum;
         this.AvailableHrs=AvailableHrs;
@@ -28,16 +28,12 @@ public class Room implements Identifiable {
     public String getAvailableHrs() {return AvailableHrs;}
     public String getRoomID() {return roomID;}
 
-    @Override
-    public String getIdPrefix() {
-        return "RMM";
-    }
-    
+    //ID generation
+    public void generateID() {this.roomID = IDGenerator.generate(this);}
+    public String getIdPrefix() {return "RMM";}
+
     public String toString(){
-        return "Room Number : " + RoomNum + " Available Hours = "+ AvailableHrs;
-    }
-    @Override
-    public void generateID() {
-        this.roomID = IDGenerator.generate(this);
-    }
+            return "Room Number : " + RoomNum + " Available Hours = "+ AvailableHrs;
+        }
+
 }

@@ -5,35 +5,18 @@ import managers.Identifiable;
 import models.Wallet;
 
 public class Organizer extends User implements Identifiable {
-
     private Wallet wallet;
-    // methods to add later (view: available rooms, their events, and their
-    // attendees)
-
+    
+    
     public Organizer(String username, String password, String dateofbirth, Gender gender) {
         super(username, password, dateofbirth, gender);
     }
 
-    // methods like viewAvailableRooms(), getEvents(), getAttendees() later
+    //setters
+    public UserRole getRole() {return role;}
+    public void setRole(UserRole role) {this.role = role;}
 
-    @Override
-    public String getIdPrefix() {
-        return "ORG";
-    }
-
-    @Override
-    public void generateID() {
-        this.userID = IDGenerator.generate(this);
-    }
-
-    @Override
-    public UserRole getRole() {
-        return role;
-    }
-
-    @Override
-    public void setRole(UserRole role) {
-        this.role = role;
-    }
-
+    //ID generation
+    public String getIdPrefix() {return "ORG";}
+    public void generateID() {this.userID = IDGenerator.generate(this);}
 }
