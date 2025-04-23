@@ -1,5 +1,7 @@
 package managers;
 
+//CRUD operations
+
 public interface Manageable<T> {
     void create(T obj);
     T read(String id);

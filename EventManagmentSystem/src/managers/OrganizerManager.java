@@ -5,6 +5,8 @@ import java.util.Scanner;
 import data.Database;
 import models.Event;
 
+
+// Organizer Dashboard with all the actions that he could take
 public class OrganizerManager {
     public static void handleOrganizer(Scanner input) {
         System.out.println("////////////////////////// Welcome, Organizer! //////////////////////////");

@@ -98,7 +98,7 @@ public class EventManager implements Manageable<Event> {
     }
 
     
-
+    // Room options
     public static void manageRooms(Scanner input) {
         System.out.println("Room Management:");
         System.out.println("1. Add Room");

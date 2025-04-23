@@ -6,6 +6,7 @@ import users.User;
 
 
 public class CLIManager {
+    //starts the program
     public static void start() {
         Scanner input = new Scanner(System.in);
         boolean exit = false;

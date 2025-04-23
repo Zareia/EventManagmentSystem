@@ -130,19 +130,19 @@ public class AuthManager {
         switch (role) {
             case Admin:
                 Admin admin = new Admin(username, password, dob, gender);
-                admin.setRole(User.UserRole.Admin); // Set the role explicitly
+                admin.setRole(User.UserRole.Admin); 
                 Database.admins.add(admin);
                 System.out.println("Admin registered successfully!");
                 break;
             case Organizer:
                 Organizer organizer = new Organizer(username, password, dob, gender);
-                organizer.setRole(User.UserRole.Organizer); // Set the role explicitly
+                organizer.setRole(User.UserRole.Organizer); 
                 Database.organizers.add(organizer);
                 System.out.println("Organizer registered successfully!");
                 break;
             case Attendee:
                 Attendee attendee = new Attendee(username, password, dob, gender, interests, address, balance);
-                attendee.setRole(User.UserRole.Attendee); // Set the role explicitly
+                attendee.setRole(User.UserRole.Attendee); 
                 Database.attendees.add(attendee);
                 System.out.println("Attendee registered successfully!");
                 break;
@@ -152,6 +152,7 @@ public class AuthManager {
         }
     }
 
+    // routes user input to the handlermethods to open their dashboard based on their role
     public static void routeUser(User user, Scanner input) {
         switch (user.getRole()) {
             case Admin:
