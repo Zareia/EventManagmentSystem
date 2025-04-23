@@ -14,10 +14,9 @@ public class Room implements Identifiable {
         this.RoomNum=RoomNum;
         this.AvailableHrs=AvailableHrs;
         generateID();
+        RoomCount += 1;
     }
-    public void Room(){
-        Room.RoomCount = RoomCount + 1;
-    }
+    
 
     // SETTERS
     public void setRoomNum(int roomNum) {RoomNum = roomNum;}

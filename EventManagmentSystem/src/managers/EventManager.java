@@ -10,42 +10,7 @@ import users.Attendee;
 
 public class EventManager implements Manageable<Event> {
 
-    @Override
-    public void create(Event event) {
-        Database.events.add(event);
-        System.out.println("Event created: " + event.getEventName());
-    }
-
-    @Override
-    public Event read(String ID) {
-        for(Event event : Database.events){
-            if (event.getEventID().equals(ID)) {
-                return event;
-            }
-        }
-        return null;
-    }
-
-    @Override
-    public void update(String ID, Event updatedObj) {
-        for (int i = 0; i < Database.events.size(); i++) {
-            if (Database.events.get(i).getEventID().equals(ID)) {
-                Database.events.set(i, updatedObj);
-                System.out.println("Event updated: " + updatedObj.getEventName());
-                return;
-            }
-        }
-        System.out.println("Event not found.");
-    }
-
-    @Override
-    public void delete(String ID) {
-        if (Database.events.removeIf(event -> event.getEventID().equals(ID))) {
-            System.out.println("Event deleted.");
-        } else {
-            System.out.println("Event not found.");
-        }
-    }
+   
 
     public static void manageEvents(Scanner input) {
         System.out.println("Event Management:");
@@ -242,5 +207,33 @@ public class EventManager implements Manageable<Event> {
                     System.out.println("Invalid choice. Please try again.");
             }
         }
+    }
+
+    @Override
+    public void create(Event event) {
+        Database.events.add(event);
+    }
+
+    @Override
+    public Event read(String id) {
+        for (Event e : Database.events) {
+            if (e.getEventID().equals(id)) return e;
+        }
+        return null;
+    }
+
+    @Override
+    public void update(String id, Event updatedEvent) {
+        for (int i = 0; i < Database.events.size(); i++) {
+            if (Database.events.get(i).getEventID().equals(id)) {
+                Database.events.set(i, updatedEvent);
+                return;
+            }
+        }
+    }
+
+    @Override
+    public void delete(String id) {
+        Database.events.removeIf(e -> e.getEventID().equals(id));
     }
 }

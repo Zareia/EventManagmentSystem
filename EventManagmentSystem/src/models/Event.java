@@ -27,11 +27,10 @@ public class Event implements Identifiable {
         this.attendee = attendee;
         this.price = price;
         generateID();
+        eventcount += 1;
     }
 
-    public void Event() {
-        Event.eventcount = eventcount + 1;
-    }
+    
 
     // Setters
     public void setEventName(String eventName) {

@@ -17,12 +17,10 @@ public class Attendee extends User implements Identifiable {
         this.address = address;
         this.wallet = new Wallet(balance); // Initialize wallet with balance
         generateID();
+        AttendeesCount += 1;
     }
 
-    // ATTENDEES COUNT
-    public void Attendee() {
-        Attendee.AttendeesCount = AttendeesCount + 1;
-    }
+    
 
     // GETTERS
     public static int getAttendeesCount() {
