@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.LoginController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#261b13" height="400.0" stroke="BLACK" strokeType="INSIDE" width="243.0" />
+      <Text fill="WHITE" layoutX="18.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Event Managment System" wrappingWidth="225.0">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Text>
+      <Pane layoutX="238.0" prefHeight="400.0" prefWidth="363.0">
+         <children>
+            <TextField fx:id="usernameField" layoutX="73.0" layoutY="158.0" prefHeight="25.0" prefWidth="216.0" promptText="Username" />
+            <PasswordField fx:id="passFeild" layoutX="73.0" layoutY="206.0" prefHeight="25.0" prefWidth="216.0" promptText="Password" />
+            <Button fx:id="regiBtn" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#regiBtnOnAction" style="-fx-background-color: #0077FF;" text="Register" textFill="WHITE" />
+            <Button fx:id="loginBtn" layoutX="73.0" layoutY="250.0" mnemonicParsing="false" onAction="#loginBtnOnAction" prefHeight="36.0" prefWidth="216.0" style="-fx-background-color: #0000FF;" text="Login" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Text layoutX="73.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
+               <font>
+                  <Font name="System Bold" size="47.0" />
+               </font>
+            </Text>
+            <Text layoutX="84.0" layoutY="378.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Click register if you do not have an account" />
+         </children>
+      </Pane>
+      <ImageView fitHeight="208.0" fitWidth="281.0" layoutX="-19.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/AAlogo_highSaturation.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

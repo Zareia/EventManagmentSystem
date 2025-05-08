@@ -83,21 +83,21 @@ public class AuthManager {
     }
 
 
-    public static User handleLogin(Scanner input) {
-        System.out.print("Enter username: ");
-        String username = input.nextLine();
+    // public static User handleLogin(Scanner input) {
+    //     System.out.print("Enter username: ");
+    //     String username = input.nextLine();
 
-        System.out.print("Enter password: ");
-        String password = input.nextLine();
+    //     System.out.print("Enter password: ");
+    //     String password = input.nextLine();
 
-        User user = AuthManager.login(username, password);
-        if (user == null) {
-            System.out.println("Login failed. Invalid credentials.");
-        } else {
-            System.out.println("Welcome, " + user.getUsername() + " (" + user.getRole() + ")");
-        }
-        return user;
-    }
+    //     User user = AuthManager.login(username, password);
+    //     if (user == null) {
+    //         System.out.println("Login failed. Invalid credentials.");
+    //     } else {
+    //         System.out.println("Welcome, " + user.getUsername() + " (" + user.getRole() + ")");
+    //     }
+    //     return user;
+    // }
 
     public static void handleRegistration(Scanner input) {
         System.out.print("Enter username: ");

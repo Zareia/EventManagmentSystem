@@ -21,7 +21,8 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+        //loads the first scene (wich is the login page)
+        Parent root = FXMLLoader.load(getClass().getResource("EMSgui.fxml"));
         primaryStage.setTitle("Event Managment System");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
