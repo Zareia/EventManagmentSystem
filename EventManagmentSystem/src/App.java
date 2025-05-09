@@ -11,6 +11,7 @@
 //         CLIManager.start();
 //     }
 // }
+import data.Database;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -21,8 +22,12 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        
+        // Add dummy data
+        Database.initializeDummyData();
+        
         //loads the first scene (wich is the login page)
-        Parent root = FXMLLoader.load(getClass().getResource("EMSgui.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/FXML/Login.fxml"));
         primaryStage.setTitle("Event Managment System");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();

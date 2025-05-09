@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -36,11 +37,12 @@
                </font>
             </Text>
             <Text layoutX="84.0" layoutY="378.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Click register if you do not have an account" />
+            <Label fx:id="loginValidationMsg" layoutX="11.0" layoutY="310.0" prefHeight="17.0" prefWidth="346.0" textFill="RED" />
          </children>
       </Pane>
       <ImageView fitHeight="208.0" fitWidth="281.0" layoutX="-19.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Images/AAlogo_highSaturation.png" />
+            <Image url="@../Images/AAlogo_highSaturation.png" />
          </image>
       </ImageView>
    </children>

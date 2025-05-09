@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import managers.AuthManager;
+import users.User;
 
 public class LoginController {
 
@@ -15,22 +16,29 @@ public class LoginController {
     @FXML
     private TextField usernameField;
     @FXML
-    private PasswordField passwordField;
+    private PasswordField passFeild;
+    @FXML
+    private Label loginValidationMsg;
     
     @FXML
     public void loginBtnOnAction(){
         String username = usernameField.getText();
-        String password = passwordField.getText();
+        String password = passFeild.getText();
 
-        if (AuthManager.login(username, password) != null) {
+        User loggedInUser = AuthManager.login(username, password);
+
+        if (loggedInUser != null) {
+            AuthManager.routeUser(loggedInUser, null);
+            System.out.println("login succsful");
+        }
+        else{
+            loginValidationMsg.setText("username or password are invalid please try again");
             
         }
     }
-    
-
-    @FXML
-    private void regiBtnOnAction(ActionEvent event) {
+        @FXML
+        private void regiBtnOnAction(ActionEvent event) {   
         
-    }
+        }
 
 }
