@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" style="-fx-background-color: #355A23;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AdminController">
+   <children>
+      <Button fx:id="viewAllAttendeBtn" alignment="CENTER" layoutX="33.0" layoutY="66.0" mnemonicParsing="false" onAction="#viewAllAttendeBtnOnAction" prefHeight="46.0" prefWidth="155.0" style="-fx-background-color: #0088FF;" text="View all attendees">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="viewAllRoomsBtn" alignment="CENTER" layoutX="216.0" layoutY="66.0" mnemonicParsing="false" onAction="#viewAllRoomsBtnOnAction" prefHeight="46.0" prefWidth="155.0" style="-fx-background-color: #0088FF;" text="View all rooms">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="viewAllEventsBtn" alignment="CENTER" layoutX="404.0" layoutY="66.0" mnemonicParsing="false" onAction="#viewAllEventsBtnOnAction" prefHeight="46.0" prefWidth="155.0" style="-fx-background-color: #0088FF;" text="View all Events">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Label fx:id="wlcmLabel" layoutX="33.0" layoutY="14.0" prefHeight="52.0" prefWidth="546.0" text="Label">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <TableView layoutX="65.0" layoutY="201.0" prefHeight="368.0" prefWidth="1071.0">
+        <columns>
+          <TableColumn fx:id="AttendeeIdColumn" prefWidth="75.0" text="Atendee ID" />
+          <TableColumn fx:id="usernameColumn" prefWidth="84.0" text="Username" />
+          <TableColumn fx:id="GenderColumn" prefWidth="84.0" text="Gender" />
+          <TableColumn fx:id="AdressColumn" prefWidth="84.0" text="Adress" />
+          <TableColumn fx:id="interestsColumn" prefWidth="84.0" text="interests" />
+          <TableColumn fx:id="BalanceColumn" prefWidth="84.0" text="Balance" />
+        </columns>
+      </TableView>
+      <Button fx:id="LogoutBtn" alignment="CENTER" layoutX="1010.0" layoutY="66.0" mnemonicParsing="false" onAction="#logoutBtnOnAction" prefHeight="46.0" prefWidth="155.0" style="-fx-background-color: #0088FF;" text="Logout">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
