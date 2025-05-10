@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="625.0" prefWidth="870.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.OrganizerDashboard">
+   <children>
+      <Label alignment="CENTER" layoutX="306.0" layoutY="14.0" prefHeight="52.0" prefWidth="258.0" text="Welcome, Organizer!">
+         <font>
+            <Font name="Arial Black" size="22.0" />
+         </font>
+      </Label>
+       <TableView fx:id="eventTable" layoutX="282.0" layoutY="148.0" prefHeight="264.0" prefWidth="306.0">
+           <columns>
+               <TableColumn fx:id="eventColumn" prefWidth="115.0" text="Events" />
+               <TableColumn fx:id="eventIDColumn" prefWidth="70.0" text="Event ID" />
+               <TableColumn fx:id="roomColumn" prefWidth="119.0" text="Rooms" />
+           </columns>
+       </TableView>
+      <Button fx:id="LogOut" layoutX="559.0" layoutY="455.0" mnemonicParsing="false" onAction="#Goback" text="Log Out" />
+      <TextField fx:id="CreateRoomField" layoutX="126.0" layoutY="280.0" prefHeight="25.0" prefWidth="101.0" />
+      <TextField fx:id="CreateEventField" layoutX="14.0" layoutY="280.0" prefHeight="25.0" prefWidth="101.0" />
+      <Label layoutX="26.0" layoutY="312.0" prefHeight="18.0" prefWidth="77.0" text="Create Event" />
+      <Label layoutX="138.0" layoutY="312.0" prefHeight="18.0" prefWidth="77.0" text="Create Room" />
+      <Button fx:id="CreateBtn" layoutX="90.0" layoutY="340.0" mnemonicParsing="false" onAction="#CreatesField" text="Create" />
+      <TextField fx:id="EventDeleteField" layoutX="695.0" layoutY="54.0" prefHeight="25.0" prefWidth="101.0" />
+      <Button fx:id="DeleteButton" layoutX="720.0" layoutY="87.0" mnemonicParsing="false" onAction="#DeleteEvent" text="Delete" />
+      <Label layoutX="685.0" layoutY="31.0" prefHeight="18.0" prefWidth="119.0" text="enter event to delete" />
+      <TextField fx:id="EventtoUpdateField" layoutX="80.0" layoutY="489.0" />
+      <Label layoutX="103.0" layoutY="471.0" prefHeight="18.0" prefWidth="147.0" text="Enter Event to update" />
+      <TextField fx:id="NewEventField" layoutX="30.0" layoutY="542.0" />
+      <TextField fx:id="NewRoomField" layoutX="193.0" layoutY="542.0" />
+      <Label layoutX="57.0" layoutY="576.0" prefHeight="18.0" prefWidth="66.0" text="New Event" />
+      <Label layoutX="227.0" layoutY="576.0" prefHeight="18.0" prefWidth="66.0" text="New Room" />
+      <Button fx:id="UpdateButton" layoutX="263.0" layoutY="489.0" mnemonicParsing="false" onAction="#Update" text="UPDATE" />
+
+   </children>
+</AnchorPane>

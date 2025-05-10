@@ -7,11 +7,14 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import managers.AuthManager;
+import users.Admin;
 import users.Attendee;
+import users.Organizer;
 import users.User;
 
 import java.io.IOException;
@@ -24,6 +27,8 @@ public class LoginController {
     private TextField usernameField;
     @FXML
     private PasswordField passFeild;
+    @FXML
+    private Label loginValidationMsg;
 
     @FXML
     public void loginBtnOnAction(ActionEvent event) {
@@ -41,20 +46,52 @@ public class LoginController {
 
             // Load the next screen
             try {
-                Parent root = FXMLLoader.load(getClass().getResource("loggedinattendee.fxml")); //
+                Parent root = FXMLLoader.load(getClass().getResource("loggedinattendee.fxml"));
                 Stage newStage = new Stage();
                 newStage.setScene(new Scene(root));
-                newStage.setTitle("AttendeeDashboard");
+                newStage.setTitle("Attendee Dashboard");
                 newStage.show();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-        else {
-            // Handle failed login
-            System.out.println("Login failed: Invalid username or password");
+        else if (loggedInUser instanceof Admin) {
+            // Close the current login window
+            Stage stage = (Stage) loginBtn.getScene().getWindow();
+            stage.close();
+
+            // Load the next screen
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource("AdminDashboard.fxml"));
+                Stage newStage = new Stage();
+                newStage.setScene(new Scene(root));
+                newStage.setTitle("Admin Dashboard");
+                newStage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        else if (loggedInUser instanceof Organizer) {
+            // Close the current login window
+            Stage stage = (Stage) loginBtn.getScene().getWindow();
+            stage.close();
+            // open organizer dashboard
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource("OrganizerDashboard.fxml")); //
+                Stage newStage = new Stage();
+                newStage.setScene(new Scene(root));
+                newStage.setTitle("Organizerdashboard");
+                newStage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        else{
+            loginValidationMsg.setText("Wrong username or Password. Please Try Again.");
         }
     }
+        
+    
 
     @FXML
     private void regiBtnOnAction(ActionEvent event) {
@@ -64,7 +101,7 @@ public class LoginController {
 
         // Load the registration scene
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("registration.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("Registration.fxml"));
             Stage newStage = new Stage();
             newStage.setScene(new Scene(root));
             newStage.setTitle("Register");

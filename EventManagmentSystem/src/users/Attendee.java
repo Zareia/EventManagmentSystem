@@ -27,6 +27,8 @@ public class Attendee extends User implements Identifiable {
     public String getAddress() {return address;}
     public Wallet getWallet() {return wallet;}
     public UserRole getRole() {return role;}
+    public String getID(){return this.userID;}
+    public double getBalance(){ double balance = wallet.getBalance(); return balance;}
     
     
     // SETTERS

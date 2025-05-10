@@ -1,15 +1,11 @@
 package models;
 
-import data.IDGenerator;
-import managers.Identifiable;
-
-public class Wallet implements Identifiable {
+public class Wallet {
     private double balance;
-    private String walletID;
 
     public Wallet(double balance) {
         this.balance = balance;
-        generateID();
+        
     }
 
     // GETTERs
@@ -31,13 +27,4 @@ public class Wallet implements Identifiable {
         }
         return false; // Operation failed
     }
-
-    @Override
-    public String toString() {
-        return "Wallet Balance: " + balance;
-    }
-
-    // ID generation
-    public String getIdPrefix() {return "WLT";}
-    public void generateID() {this.walletID = IDGenerator.generate(this);}
 }

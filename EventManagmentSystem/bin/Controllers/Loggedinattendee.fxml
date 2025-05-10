@@ -2,9 +2,11 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Loggedinattendee">
    <children>
@@ -13,7 +15,18 @@
             <Font name="Arial Black" size="17.0" />
          </font>
       </Label>
-      <Button fx:id="events" layoutX="76.0" layoutY="187.0" mnemonicParsing="false" onAction="#EventBtnOnAction" prefHeight="25.0" prefWidth="130.0" text="View Events" />
-      <Button fx:id="tickets" layoutX="350.0" layoutY="187.0" mnemonicParsing="false" onAction="#TicketBtnOnAction" prefHeight="25.0" prefWidth="130.0" text="Buy Tickets?" />
+      <TableView fx:id="AttendeeCol" layoutX="56.0" layoutY="109.0" prefHeight="200.0" prefWidth="501.0">
+        <columns>
+          <TableColumn fx:id="EventCol" prefWidth="194.7169647216797" text="Event" />
+          <TableColumn fx:id="IDCol" prefWidth="145.81138610839844" text="Event ID" />
+            <TableColumn fx:id="DateCol" prefWidth="110.490478515625" text="Date" />
+            <TableColumn fx:id="PriceCol" prefWidth="50.7169189453125" text="Price" />
+        </columns>
+      </TableView>
+      <TextField fx:id="IDField" layoutX="246.0" layoutY="335.0" prefHeight="25.0" prefWidth="252.0" />
+      <Label layoutX="67.0" layoutY="338.0" prefHeight="18.0" prefWidth="174.0" text="Enter Event ID to purchase ticket" />
+      <Button fx:id="LogOut" layoutX="499.0" layoutY="14.0" mnemonicParsing="false" onAction="#goBack" text="Log Out" />
+      <Button fx:id="buy" layoutX="517.0" layoutY="335.0" mnemonicParsing="false" onAction="#BuyTIcket" text="buy" />
+      <Label fx:id="msglabel" layoutX="61.0" layoutY="360.0" prefHeight="18.0" prefWidth="502.0" />
    </children>
 </AnchorPane>

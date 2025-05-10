@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Registration">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Registration">
    <children>
       <Label layoutX="204.0" layoutY="59.0" prefHeight="30.0" prefWidth="191.0" text="Register Account" textAlignment="CENTER">
          <font>
@@ -18,5 +18,6 @@
       <Label layoutX="127.0" layoutY="135.0" prefHeight="18.0" prefWidth="56.0" text="Username" />
       <Label layoutX="127.0" layoutY="206.0" prefHeight="18.0" prefWidth="56.0" text="password" />
       <Button fx:id="registerbutton" layoutX="265.0" layoutY="304.0" mnemonicParsing="false" onAction="#handleRegister" text="register" />
+      <Button fx:id="BackBtn" layoutX="434.0" layoutY="350.0" mnemonicParsing="false" onAction="#goback" prefHeight="25.0" prefWidth="127.0" text="back to log-in screen" />
    </children>
 </AnchorPane>

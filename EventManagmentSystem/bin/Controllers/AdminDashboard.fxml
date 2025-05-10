@@ -6,44 +6,58 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" style="-fx-background-color: #355A23;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AdminController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AdminController">
    <children>
-      <Button fx:id="viewAllAttendeBtn" alignment="CENTER" layoutX="33.0" layoutY="66.0" mnemonicParsing="false" onAction="#viewAllAttendeBtnOnAction" prefHeight="46.0" prefWidth="155.0" style="-fx-background-color: #0088FF;" text="View all attendees">
+      <Button fx:id="LogoutBtn" alignment="CENTER" layoutX="14.0" layoutY="540.0" mnemonicParsing="false" onAction="#logoutBtnOnAction" prefHeight="46.0" prefWidth="155.0" style="-fx-background-color: #0088FF;" text="Logout">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="viewAllRoomsBtn" alignment="CENTER" layoutX="216.0" layoutY="66.0" mnemonicParsing="false" onAction="#viewAllRoomsBtnOnAction" prefHeight="46.0" prefWidth="155.0" style="-fx-background-color: #0088FF;" text="View all rooms">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Button>
-      <Button fx:id="viewAllEventsBtn" alignment="CENTER" layoutX="404.0" layoutY="66.0" mnemonicParsing="false" onAction="#viewAllEventsBtnOnAction" prefHeight="46.0" prefWidth="155.0" style="-fx-background-color: #0088FF;" text="View all Events">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Button>
-      <Label fx:id="wlcmLabel" layoutX="33.0" layoutY="14.0" prefHeight="52.0" prefWidth="546.0" text="Label">
-         <font>
-            <Font name="System Bold" size="22.0" />
-         </font>
-      </Label>
-      <TableView layoutX="65.0" layoutY="201.0" prefHeight="368.0" prefWidth="1071.0">
+      <TableView fx:id="AttTableView" layoutX="478.0" layoutY="14.0" prefHeight="182.0" prefWidth="676.0">
         <columns>
-          <TableColumn fx:id="AttendeeIdColumn" prefWidth="75.0" text="Atendee ID" />
-          <TableColumn fx:id="usernameColumn" prefWidth="84.0" text="Username" />
-          <TableColumn fx:id="GenderColumn" prefWidth="84.0" text="Gender" />
-          <TableColumn fx:id="AdressColumn" prefWidth="84.0" text="Adress" />
-          <TableColumn fx:id="interestsColumn" prefWidth="84.0" text="interests" />
-          <TableColumn fx:id="BalanceColumn" prefWidth="84.0" text="Balance" />
+          <TableColumn fx:id="usernameColumn" text="Username" prefWidth="100.0" />
+          <TableColumn fx:id="genderColumn" text="Gender" prefWidth="75.0" />
+          <TableColumn fx:id="interestsColumn" text="Interests" prefWidth="100.0" />
+          <TableColumn fx:id="addressColumn" text="Address" prefWidth="100.0" />
+          <TableColumn fx:id="walletBalanceColumn" text="Balance" prefWidth="75.0" />
         </columns>
       </TableView>
-      <Button fx:id="LogoutBtn" alignment="CENTER" layoutX="1010.0" layoutY="66.0" mnemonicParsing="false" onAction="#logoutBtnOnAction" prefHeight="46.0" prefWidth="155.0" style="-fx-background-color: #0088FF;" text="Logout">
+      <TableView fx:id="RoomTableView" layoutX="478.0" layoutY="209.0" prefHeight="182.0" prefWidth="676.0">
+         <columns>
+            <TableColumn fx:id="roomIDColumn" text="RoomID" prefWidth="150.0" />
+            <TableColumn fx:id="roomNumberColumn" text="Room Number" prefWidth="150.0" />
+            <TableColumn fx:id="availableHoursColumn" text="Available Hours" prefWidth="200.0" />
+         </columns>
+      </TableView>
+      <TableView fx:id="EventTableView" layoutX="478.0" layoutY="404.0" prefHeight="182.0" prefWidth="676.0">
+         <columns>
+            <TableColumn fx:id="eventNameColumn" text="Event Name" prefWidth="150.0" />
+            <TableColumn fx:id="eventRoomColumn" text="Event room" prefWidth="100.0" />
+            <TableColumn fx:id="eventCategoryColumn" text="Category" prefWidth="100.0" />
+            <TableColumn fx:id="eventPriceColumn" text="Price" prefWidth="75.0" />
+         </columns>
+      </TableView>
+      <Label layoutX="334.0" layoutY="14.0" text="Attendee Table">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
-      </Button>
+      </Label>
+      <Label layoutX="362.0" layoutY="209.0" text="Room Table">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="365.0" layoutY="404.0" text="Event Table">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Text layoutX="14.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome Admin" wrappingWidth="369.13671875">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

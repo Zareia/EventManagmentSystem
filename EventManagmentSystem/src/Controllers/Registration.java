@@ -2,9 +2,15 @@ package Controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import managers.AuthManager;
 import users.User;
+
+import java.io.IOException;
 
 public class Registration {
 
@@ -30,4 +36,24 @@ public class Registration {
     public void handleRegister(ActionEvent actionEvent) {
         registerUser();
     }
-} 
+
+    public void goback(ActionEvent actionEvent) {
+
+        // close current register scene
+
+        Stage stage = (Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();
+        stage.close();
+
+        // go back to LOG IN
+
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("Login.fxml")); //
+            Stage newStage = new Stage();
+            newStage.setScene(new Scene(root));
+            newStage.setTitle("Log-in Menu");
+            newStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
